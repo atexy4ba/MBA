@@ -8,12 +8,21 @@ import { PrivacyPage } from '@client/feature/storefront/pages/PrivacyPage';
 import { Header } from '@client/feature/storefront/components/Header';
 import { Footer } from '@client/feature/storefront/components/Footer';
 import { CookieBanner } from '@client/feature/storefront/components/CookieBanner';
+import { AdminLayout } from '@client/feature/admin/components/AdminLayout';
+import { LoginPage } from '@client/feature/admin/pages/LoginPage';
+import { DashboardPage } from '@client/feature/admin/pages/DashboardPage';
+import { OrdersPage } from '@client/feature/admin/pages/OrdersPage';
+import { OrderDetailPage } from '@client/feature/admin/pages/OrderDetailPage';
+import { ProductsPage } from '@client/feature/admin/pages/ProductsPage';
+import { ProductFormPage } from '@client/feature/admin/pages/ProductFormPage';
+import { CategoriesPage } from '@client/feature/admin/pages/CategoriesPage';
+import { SettingsPage } from '@client/feature/admin/pages/SettingsPage';
 
 const rootRoute = createRootRoute({
   component: () => (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         <CookieBanner />
       </main>
       <Footer />
@@ -21,9 +30,15 @@ const rootRoute = createRootRoute({
   ),
 });
 
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: HomePage,
+});
+
 const homeRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/fr/',
+  path: '/fr',
   component: HomePage,
 });
 
@@ -60,10 +75,64 @@ const privacyRoute = createRoute({
   component: PrivacyPage,
 });
 
-const indexRoute = createRoute({
+const adminLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
-  component: HomePage,
+  id: 'admin-layout',
+  component: AdminLayout,
+});
+
+const adminLoginRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin/login',
+  component: LoginPage,
+});
+
+const adminDashboardRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin',
+  component: DashboardPage,
+});
+
+const adminOrdersRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/commandes',
+  component: OrdersPage,
+});
+
+const adminOrderDetailRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/commandes/$id',
+  component: OrderDetailPage,
+});
+
+const adminProductsRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/produits',
+  component: ProductsPage,
+});
+
+const adminProductNewRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/produits/new',
+  component: ProductFormPage,
+});
+
+const adminProductEditRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/produits/$id/edit',
+  component: ProductFormPage,
+});
+
+const adminCategoriesRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/categories',
+  component: CategoriesPage,
+});
+
+const adminSettingsRoute = createRoute({
+  getParentRoute: () => adminLayoutRoute,
+  path: '/admin/parametres',
+  component: SettingsPage,
 });
 
 const routeTree = rootRoute.addChildren([
@@ -74,6 +143,17 @@ const routeTree = rootRoute.addChildren([
   searchRoute,
   confirmationRoute,
   privacyRoute,
+  adminLoginRoute,
+  adminLayoutRoute.addChildren([
+    adminDashboardRoute,
+    adminOrdersRoute,
+    adminOrderDetailRoute,
+    adminProductsRoute,
+    adminProductNewRoute,
+    adminProductEditRoute,
+    adminCategoriesRoute,
+    adminSettingsRoute,
+  ]),
 ]);
 
 export const router = createRouter({ routeTree });
