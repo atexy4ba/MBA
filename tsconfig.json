@@ -16,7 +16,7 @@
       "@/*": ["./src/*"],
       "@client/*": ["./src/client/*"],
       "@server/*": ["./src/server/*"],
-      "@shared/*": ["./src/shared/*"]
+      "@shared/*": ["./src/client/shared/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

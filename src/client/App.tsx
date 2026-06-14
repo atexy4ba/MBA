@@ -1,21 +1,24 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60,
-      retry: 1,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
+import { QueryClientProvider } from '@tanstack/react-query';
+import { RouterProvider } from '@tanstack/react-router';
+import { Toaster } from 'sonner';
+import { queryClient } from '@shared/lib/api';
+import { router } from './router';
+import './index.css';
 
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-white text-charcoal-900">
-        <h1 className="font-heading text-3xl p-8">Made by Algerians</h1>
-      </div>
+      <RouterProvider router={router} />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: '#1a1a1a',
+            color: '#f5f5f5',
+            border: '1px solid #333',
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }
