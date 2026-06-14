@@ -47,6 +47,13 @@ jobs:
           JWT_ACCESS_SECRET: test-secret
           JWT_REFRESH_SECRET: test-refresh-secret
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - run: npm run test:e2e
+        env:
+          CI: true
+
   deploy:
     needs: lint-and-test
     runs-on: ubuntu-latest
@@ -60,9 +67,25 @@ jobs:
           node-version: 22
           cache: 'npm'
 
-      - run: npm ci --omit=dev
+      - run: npm ci
 
-      - run: npm run build
+      - name: Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Prerender static pages
+        run: node scripts/prerender.mjs
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          BASE_URL: https://madebyalgerians.com
+
+      - name: Install production deps
+        run: npm ci --omit=dev
 
       - name: Deploy to Octenium via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -79,10 +102,15 @@ jobs:
             .github/**
             node_modules/.cache/**
             src/**
+            scripts/**
             **/*.ts
             **/*.tsx
+            **/*.spec.ts
+            **/*.test.ts
             !dist/**
             !dist-server/**
             !server.cjs
             !package.json
             !package-lock.json
+            !public/**
+            !.env.production
