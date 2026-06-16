@@ -11,8 +11,6 @@ import {
   StockBadge,
   ProductDetailSkeleton,
 } from '@shared/components'
-import { Header } from '@client/feature/storefront/components/Header'
-import { Footer } from '@client/feature/storefront/components/Footer'
 import { formatPrice, cn } from '@shared/lib/utils'
 import type { Variant, PricingTier, OrderFormData } from '@shared/types'
 
@@ -172,7 +170,7 @@ export function ProductPage() {
   if (isError) {
     return (
       <div className="min-h-screen bg-white">
-        <Header />
+        
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
           <p className="text-charcoal-500 mb-4">
             {(error as Error)?.message || 'Produit introuvable.'}
@@ -181,7 +179,7 @@ export function ProductPage() {
             Retour à l&rsquo;accueil
           </Link>
         </main>
-        <Footer />
+        
       </div>
     )
   }
@@ -189,18 +187,18 @@ export function ProductPage() {
   if (isLoading || !product) {
     return (
       <div className="min-h-screen bg-white">
-        <Header />
+        
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
           <ProductDetailSkeleton />
         </main>
-        <Footer />
+        
       </div>
     )
   }
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
@@ -520,7 +518,7 @@ export function ProductPage() {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   )
 }

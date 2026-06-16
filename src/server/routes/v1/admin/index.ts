@@ -105,6 +105,10 @@ adminRoutes.post('/refresh', async (req: Request, res: Response, next: NextFunct
 // All routes below require admin auth
 adminRoutes.use(authenticate, requireAdmin);
 
+adminRoutes.get('/me', async (req: Request, res: Response, _next: NextFunction) => {
+  res.json({ data: { userId: req.user!.userId, role: req.user!.role } });
+});
+
 // --- Dashboard Analytics ---
 adminRoutes.get('/analytics', async (_req: Request, res: Response, next: NextFunction) => {
   try {

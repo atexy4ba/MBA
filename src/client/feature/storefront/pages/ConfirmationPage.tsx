@@ -1,7 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
 import { CircleCheck, Camera, Globe, ArrowLeft } from 'lucide-react'
-import { Header } from '@client/feature/storefront/components/Header'
-import { Footer } from '@client/feature/storefront/components/Footer'
 
 export function ConfirmationPage() {
   const params = useParams({ from: '/fr/confirmation/$orderId' } as never)
@@ -9,7 +7,7 @@ export function ConfirmationPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      
 
       <main className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-20 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-50 mb-8">
@@ -69,7 +67,7 @@ export function ConfirmationPage() {
         </Link>
       </main>
 
-      <Footer />
+      
     </div>
   )
 }

@@ -16,6 +16,7 @@ export function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const logout = useAuthStore((s) => s.logout);
 
   if (!isAuthenticated) {
     navigate({ to: '/admin/login' });
@@ -52,7 +53,8 @@ export function AdminLayout() {
         <div className="p-3 border-t border-charcoal-800">
           <button
             onClick={() => {
-              useAuthStore.setState({ isAuthenticated: false });
+              logout();
+              localStorage.removeItem('mba-auth');
               navigate({ to: '/admin/login' });
             }}
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal-400 hover:text-white hover:bg-charcoal-800 transition-colors w-full"

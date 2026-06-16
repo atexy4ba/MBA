@@ -3,8 +3,6 @@ import { Link, useNavigate } from '@tanstack/react-router'
 import { Search, X, ChevronRight } from 'lucide-react'
 import { useSearch, useCategories } from '@shared/lib/hooks'
 import { ProductCardSkeleton } from '@shared/components'
-import { Header } from '@client/feature/storefront/components/Header'
-import { Footer } from '@client/feature/storefront/components/Footer'
 import { ProductCard } from '@client/feature/storefront/components/ProductCard'
 import type { Category, ProductWithVariants } from '@shared/types'
 import { cn } from '@shared/lib/utils'
@@ -65,7 +63,7 @@ export function SearchPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
@@ -188,7 +186,7 @@ export function SearchPage() {
         )}
       </main>
 
-      <Footer />
+      
     </div>
   )
 }

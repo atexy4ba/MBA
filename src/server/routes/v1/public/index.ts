@@ -7,6 +7,20 @@ import { sendNewOrderNotification } from '../../../services/email';
 
 export const publicRoutes = Router();
 
+// GET /api/v1
+publicRoutes.get('/', (_req: Request, res: Response) => {
+  res.json({
+    name: 'Made by Algerians API',
+    version: '1.0.0',
+    endpoints: {
+      products: '/api/v1/products',
+      categories: '/api/v1/categories',
+      search: '/api/v1/search',
+      orders: 'POST /api/v1/orders',
+    },
+  });
+});
+
 const paginationSchema = z.object({
   page: z.coerce.number().int().positive().default(1),
   limit: z.coerce.number().int().positive().max(50).default(20),

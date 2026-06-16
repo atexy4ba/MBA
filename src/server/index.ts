@@ -27,6 +27,15 @@ app.use(analyticsMiddleware);
 app.use('/api/v1', publicRoutes);
 app.use('/api/v1/admin', adminRoutes);
 
+app.use('/api', (_req, res) => {
+  res.status(404).json({
+    error: {
+      code: 'NOT_FOUND',
+      message: 'Route API introuvable.',
+    },
+  });
+});
+
 app.get('/sitemap.xml', (_req, res) => {
   const baseUrl = process.env.BASE_URL || 'https://madebyalgerians.com';
   const urls = [
@@ -44,10 +53,17 @@ ${urls.map((u) => `  <url><loc>${u.loc}</loc><priority>${u.priority}</priority><
 </urlset>`);
 });
 
-const distPath = path.join(__dirname, '..', 'dist');
+const distPath = path.resolve('dist');
 app.use(express.static(distPath, { maxAge: '7d' }));
-app.get('*', (_req, res) => {
+app.get('/{*splat}', (_req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
 app.use(errorHandler);
+
+const PORT = Number(process.env.PORT) || 3000;
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}

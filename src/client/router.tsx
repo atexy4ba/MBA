@@ -1,4 +1,4 @@
-import { createRouter, createRootRoute, createRoute } from '@tanstack/react-router';
+import { createRouter, createRootRoute, createRoute, Outlet, useRouterState } from '@tanstack/react-router';
 import { lazy } from 'react';
 import { HomePage } from '@client/feature/storefront/pages/HomePage';
 import { CategoryPage } from '@client/feature/storefront/pages/CategoryPage';
@@ -22,15 +22,32 @@ const CategoriesPage = lazy(() => import('@client/feature/admin/pages/Categories
 const SettingsPage = lazy(() => import('@client/feature/admin/pages/SettingsPage').then((m) => ({ default: m.SettingsPage })));
 
 const rootRoute = createRootRoute({
-  component: () => (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-1 pt-16">
-        <CookieBanner />
-      </main>
-      <Footer />
-    </div>
-  ),
+  component: () => {
+    const pathname = useRouterState({ select: (s) => s.location.pathname });
+    const isAdmin = pathname.startsWith('/admin');
+
+    if (isAdmin) {
+      return (
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-1">
+            <CookieBanner />
+            <Outlet />
+          </main>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1 pt-16">
+          <CookieBanner />
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    );
+  },
 });
 
 const indexRoute = createRoute({

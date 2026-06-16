@@ -1,10 +1,9 @@
-import { Header } from '@client/feature/storefront/components/Header'
-import { Footer } from '@client/feature/storefront/components/Footer'
+
 
 export function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      
 
       <main className="mx-auto max-w-prose px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="font-heading text-3xl sm:text-4xl text-charcoal-900 mb-2">
@@ -171,7 +170,7 @@ export function PrivacyPage() {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   )
 }

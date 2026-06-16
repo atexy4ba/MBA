@@ -2,8 +2,6 @@ import { Link } from '@tanstack/react-router'
 import { Shield, Factory, Truck, Award, ArrowRight } from 'lucide-react'
 import { useInfiniteProducts, useCategories } from '@shared/lib/hooks'
 import { ProductCardSkeleton } from '@shared/components'
-import { Header } from '@client/feature/storefront/components/Header'
-import { Footer } from '@client/feature/storefront/components/Footer'
 import { ProductCard } from '@client/feature/storefront/components/ProductCard'
 import type { CategoryTree, ProductWithVariants } from '@shared/types'
 const TRUST_BADGES = [
@@ -28,8 +26,6 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-
       <main>
         {/* Hero */}
         <section className="bg-charcoal-900 text-white">
@@ -164,8 +160,6 @@ export function HomePage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   )
 }
