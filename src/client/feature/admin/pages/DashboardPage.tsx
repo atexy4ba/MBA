@@ -159,10 +159,10 @@ export function DashboardPage() {
         {statCards.map(({ label, value, icon: Icon, borderColor, bgIcon }) => (
           <article
             key={label}
-            className={`bg-white rounded-xl border border-charcoal-200 border-l-4 ${borderColor} p-5 flex items-start gap-4`}
+            className="bg-white rounded-2xl shadow-sm border border-charcoal-100 p-5 flex items-start gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             aria-label={`${label}: ${value}`}
           >
-            <div className={`p-2.5 rounded-lg shrink-0 ${bgIcon}`}>
+            <div className={`p-3 rounded-xl shrink-0 ${bgIcon}`}>
               <Icon className="h-5 w-5" />
             </div>
             <div className="min-w-0">
@@ -177,7 +177,7 @@ export function DashboardPage() {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl border border-charcoal-200 p-6">
+      <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 p-6">
         <h2 className="font-heading text-lg text-charcoal-900 mb-4">Commandes récentes</h2>
         {analytics.recentOrders.length === 0 ? (
           <p className="text-sm text-charcoal-400 py-6 text-center">Aucune commande récente.</p>
@@ -209,7 +209,7 @@ export function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl border border-charcoal-200 p-6">
+        <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 p-6">
           <h2 className="font-heading text-lg text-charcoal-900 mb-4">Produits en alerte</h2>
           {analytics.lowStockVariants.length === 0 ? (
             <p className="text-sm text-charcoal-400 py-6 text-center">
@@ -219,8 +219,8 @@ export function DashboardPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-charcoal-200">
-                    <th className="text-left text-xs font-medium text-charcoal-400 uppercase tracking-wider py-3 pr-4">
+                  <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
+                    <th className="text-left text-xs font-semibold uppercase tracking-wider text-charcoal-400 py-3 pr-4">
                       Produit
                     </th>
                     <th className="text-left text-xs font-medium text-charcoal-400 uppercase tracking-wider py-3 pr-4">
@@ -260,9 +260,9 @@ export function DashboardPage() {
             </div>
           )}
         </div>
-
-        <div className="bg-white rounded-xl border border-charcoal-200 p-6">
+        <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 p-6">
           <h2 className="font-heading text-lg text-charcoal-900 mb-4">Dernières commandes</h2>
+
           {analytics.recentOrders.length === 0 ? (
             <p className="text-sm text-charcoal-400 py-6 text-center">
               Aucune commande pour le moment.
@@ -271,17 +271,17 @@ export function DashboardPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-charcoal-200">
-                    <th className="text-left text-xs font-medium text-charcoal-400 uppercase tracking-wider py-3 pr-4">
+                  <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
+                    <th className="text-left text-xs font-semibold uppercase tracking-wider text-charcoal-400 py-3 pr-4">
                       N°
                     </th>
-                    <th className="text-left text-xs font-medium text-charcoal-400 uppercase tracking-wider py-3 pr-4">
+                    <th className="text-left text-xs font-semibold uppercase tracking-wider text-charcoal-400 py-3 pr-4">
                       Client
                     </th>
-                    <th className="text-left text-xs font-medium text-charcoal-400 uppercase tracking-wider py-3 pr-4">
+                    <th className="text-left text-xs font-semibold uppercase tracking-wider text-charcoal-400 py-3 pr-4">
                       Date
                     </th>
-                    <th className="text-right text-xs font-medium text-charcoal-400 uppercase tracking-wider py-3">
+                    <th className="text-right text-xs font-semibold uppercase tracking-wider text-charcoal-400 py-3">
                       Statut
                     </th>
                   </tr>

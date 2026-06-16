@@ -41,7 +41,7 @@ export function LoginPage() {
           <p className="text-sm text-charcoal-500 mt-1">Connexion administrateur</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl border border-charcoal-200 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 space-y-4">
           {error && (
             <div className="p-3 text-sm text-red-700 bg-red-50 rounded-lg border border-red-200">
               {error}

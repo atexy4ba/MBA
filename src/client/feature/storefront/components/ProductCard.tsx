@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ShoppingCart } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import type { ProductWithVariants } from '@client/shared/types';
 import { PriceRange } from '@client/shared/components/PriceTag';
 import { StockBadge } from '@client/shared/components/Badge';
@@ -11,12 +11,12 @@ interface ProductCardProps {
 }
 
 const COLOR_MAP: Record<string, string> = {
-  noir: '#1a1a1a',
-  black: '#1a1a1a',
+  noir: '#1c1917',
+  black: '#1c1917',
   blanc: '#f5f5f5',
   white: '#f5f5f5',
-  rouge: '#D32F2F',
-  red: '#D32F2F',
+  rouge: '#dc2626',
+  red: '#dc2626',
   bleu: '#1E3A5F',
   blue: '#1E3A5F',
   vert: '#2E7D32',
@@ -89,22 +89,24 @@ export function ProductCard({ product }: ProductCardProps) {
     <Link
       to="/fr/products/$slug"
       params={{ slug: product.slug }}
-      className="group block"
+      className="group block rounded-2xl bg-white shadow-sm border border-charcoal-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
     >
-      <div className="relative overflow-hidden bg-charcoal-50 aspect-[3/4]">
+      <div className="relative overflow-hidden bg-gradient-to-b from-charcoal-50 to-charcoal-100 aspect-[3/4]">
         {product.imageUrl ? (
           <img
             src={product.imageUrl}
             alt={product.name}
             className={cn(
-              'absolute inset-0 w-full h-full object-cover transition-opacity duration-500',
+              'absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105',
               hasTransition && 'group-hover:opacity-0',
             )}
             loading="lazy"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-charcoal-300 text-sm font-body">
-            {product.name.charAt(0).toUpperCase()}
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-charcoal-100 via-charcoal-50 to-charcoal-100">
+            <span className="font-heading text-5xl text-charcoal-300 select-none">
+              {product.name.charAt(0).toUpperCase()}
+            </span>
           </div>
         )}
 
@@ -112,54 +114,54 @@ export function ProductCard({ product }: ProductCardProps) {
           <img
             src={secondaryImage}
             alt={product.name}
-            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-100"
             loading="lazy"
           />
         )}
 
         {lowestStock < 5 && (
-          <div className="absolute top-2 left-2 z-10">
+          <div className="absolute top-3 left-3 z-10">
             <StockBadge stock={lowestStock} />
           </div>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 p-3 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <span
-            className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-medium tracking-tight rounded-lg py-2.5 px-4 text-sm hover:bg-accent-hover transition-colors duration-150"
-          >
-            <ShoppingCart className="w-4 h-4" />
-            Voir le produit
+        <div className="absolute inset-x-0 bottom-3 flex justify-center translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <span className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-charcoal-900 font-medium rounded-full py-2.5 px-5 text-sm shadow-lg shadow-black/10 hover:bg-white hover:shadow-xl transition-all duration-200">
+            <Eye className="w-4 h-4" />
+            Voir
           </span>
         </div>
       </div>
 
-      {uniqueColors.length > 0 && (
-        <div className="flex gap-1.5 mt-3" aria-label="Couleurs disponibles">
-          {uniqueColors.slice(0, 6).map((color) => (
-            <span
-              key={color}
-              className="w-4 h-4 rounded-full border border-charcoal-200 shrink-0"
-              style={{ backgroundColor: resolveColor(color) }}
-              title={color}
-            />
-          ))}
-          {uniqueColors.length > 6 && (
-            <span className="text-xs text-charcoal-500 leading-4 font-body">
-              +{uniqueColors.length - 6}
-            </span>
-          )}
-        </div>
-      )}
+      <div className="px-3 pb-4">
+        {uniqueColors.length > 0 && (
+          <div className="flex gap-1.5 mt-3" aria-label="Couleurs disponibles">
+            {uniqueColors.slice(0, 6).map((color) => (
+              <span
+                key={color}
+                className="w-5 h-5 rounded-full ring-1 ring-charcoal-200 ring-offset-1 ring-offset-white shrink-0 transition-shadow duration-200 hover:ring-2 hover:ring-charcoal-400"
+                style={{ backgroundColor: resolveColor(color) }}
+                title={color}
+              />
+            ))}
+            {uniqueColors.length > 6 && (
+              <span className="text-xs text-charcoal-500 leading-5 font-body">
+                +{uniqueColors.length - 6}
+              </span>
+            )}
+          </div>
+        )}
 
-      <h3 className="mt-2 font-heading text-sm text-charcoal-900 line-clamp-1">
-        {product.name}
-      </h3>
+        <h3 className="mt-2 font-heading text-sm font-medium text-charcoal-900 line-clamp-1">
+          {product.name}
+        </h3>
 
-      {product.variants.length > 0 && (
-        <div className="mt-1">
-          <PriceRange variants={product.variants} />
-        </div>
-      )}
+        {product.variants.length > 0 && (
+          <div className="mt-1">
+            <PriceRange variants={product.variants} />
+          </div>
+        )}
+      </div>
     </Link>
   );
 }

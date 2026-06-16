@@ -28,8 +28,9 @@ export function HomePage() {
     <div className="min-h-screen bg-white">
       <main>
         {/* Hero */}
-        <section className="bg-charcoal-900 text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+        <section className="relative bg-gradient-to-br from-charcoal-900 via-charcoal-900 to-charcoal-800 text-white overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:24px_24px]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
             <div className="max-w-2xl">
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight">
                 L&rsquo;excellence textile algérienne
@@ -40,7 +41,7 @@ export function HomePage() {
               </p>
               <Link
                 to="/fr/categories/$slug" params={{ slug: 'hauts-unisexe' }}
-                className="inline-flex items-center gap-2 mt-8 px-7 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-hover transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 mt-8 px-7 py-3.5 bg-accent text-white font-medium rounded-xl hover:bg-accent-hover transition-all duration-200 shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5"
               >
                 Découvrir nos produits
                 <ArrowRight className="h-4 w-4" />
@@ -63,7 +64,7 @@ export function HomePage() {
                     to="/fr/categories/$slug" params={{ slug: cat.slug }}
                     className="flex-shrink-0 w-44 sm:w-56 group"
                   >
-                    <div className="aspect-square bg-charcoal-100 rounded-lg overflow-hidden">
+                    <div className="aspect-square bg-gradient-to-br from-charcoal-100 to-charcoal-200 rounded-2xl overflow-hidden">
                       {cat.imageUrl ? (
                         <img
                           src={cat.imageUrl}
@@ -141,19 +142,19 @@ export function HomePage() {
         </section>
 
         {/* Trust Badges */}
-        <section className="py-16 sm:py-20 bg-charcoal-900 text-white">
+        <section className="py-16 sm:py-20 bg-charcoal-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl sm:text-3xl text-white mb-12 text-center">
+            <h2 className="font-heading text-2xl sm:text-3xl text-charcoal-900 mb-12 text-center">
               Pourquoi nous choisir
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
               {TRUST_BADGES.map((badge) => (
                 <div key={badge.title} className="text-center">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent mb-4">
-                    <badge.icon className="h-6 w-6 text-white" />
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl border border-accent/20 bg-accent/5 mb-4">
+                    <badge.icon className="h-6 w-6 text-accent" />
                   </div>
-                  <h3 className="font-heading text-base text-white mb-2">{badge.title}</h3>
-                  <p className="text-sm text-charcoal-400">{badge.desc}</p>
+                  <h3 className="font-heading text-base text-charcoal-900 mb-2">{badge.title}</h3>
+                  <p className="text-sm text-charcoal-500">{badge.desc}</p>
                 </div>
               ))}
             </div>

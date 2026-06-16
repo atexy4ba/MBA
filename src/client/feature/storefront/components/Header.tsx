@@ -18,7 +18,7 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-50 bg-white border-b border-charcoal-200">
+      <header className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-charcoal-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link
@@ -91,7 +91,7 @@ export function Header() {
                 <input
                   type="search"
                   placeholder="Rechercher un produit..."
-                  className="w-full px-4 py-2.5 text-sm bg-charcoal-50 border border-charcoal-200 rounded-lg focus:outline-none focus:border-accent"
+                  className="w-full px-4 py-2.5 text-sm bg-charcoal-50/50 border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all duration-200 placeholder:text-charcoal-400"
                   autoFocus
                 />
               </form>

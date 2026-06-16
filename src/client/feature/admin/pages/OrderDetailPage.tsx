@@ -247,13 +247,13 @@ export function OrderDetailPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-charcoal-50 border-b border-charcoal-100">
-                    <th className="text-left px-5 py-3 font-medium text-charcoal-500">Produit</th>
-                    <th className="text-left px-5 py-3 font-medium text-charcoal-500">Variante</th>
-                    <th className="text-left px-5 py-3 font-medium text-charcoal-500">SKU</th>
-                    <th className="text-center px-5 py-3 font-medium text-charcoal-500">Qté</th>
-                    <th className="text-right px-5 py-3 font-medium text-charcoal-500">Prix unit.</th>
-                    <th className="text-right px-5 py-3 font-medium text-charcoal-500">Total</th>
+                  <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
+                    <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Produit</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Variante</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">SKU</th>
+                    <th className="text-center px-5 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Qté</th>
+                    <th className="text-right px-5 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Prix unit.</th>
+                    <th className="text-right px-5 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Total</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-charcoal-100">
@@ -416,7 +416,7 @@ export function OrderDetailPage() {
                   <select
                     value={newStatus}
                     onChange={(e) => setNewStatus(e.target.value)}
-                    className="appearance-none w-full pl-3 pr-8 py-2.5 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors text-charcoal-700 cursor-pointer"
+                    className="appearance-none w-full pl-3 pr-8 py-2.5 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:border-accent transition-colors text-charcoal-700 cursor-pointer"
                     required
                   >
                     <option value="" disabled>
@@ -435,7 +435,7 @@ export function OrderDetailPage() {
                   value={statusNote}
                   onChange={(e) => setStatusNote(e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors placeholder:text-charcoal-400 resize-none"
+                  className="w-full px-3 py-2 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:border-accent transition-colors placeholder:text-charcoal-400 resize-none"
                 />
                 <Button
                   type="submit"

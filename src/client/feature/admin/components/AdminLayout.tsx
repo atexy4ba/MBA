@@ -37,7 +37,7 @@ export function AdminLayout() {
   return (
     <div className="flex h-screen bg-charcoal-50">
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col w-64 bg-charcoal-900 text-white shrink-0">
+      <aside className="hidden lg:flex flex-col w-64 bg-charcoal-900 text-white shrink-0 shadow-2xl shadow-black/20 z-10">
         <div className="p-5 border-b border-charcoal-800">
           <Link to="/admin" className="font-heading text-lg tracking-tight">
             MBA <span className="text-accent">Admin</span>
@@ -48,9 +48,9 @@ export function AdminLayout() {
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
+              className={`flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-xl text-sm font-medium transition-all duration-200 ${
                 currentPath === to || (to !== '/admin' && currentPath.startsWith(to))
-                  ? 'bg-accent text-white'
+                  ? 'bg-accent/10 text-accent border-l-2 border-l-accent pl-2.5'
                   : 'text-charcoal-300 hover:text-white hover:bg-charcoal-800'
               }`}
             >
@@ -91,7 +91,7 @@ export function AdminLayout() {
           aria-label="Menu de navigation"
         >
           <div
-            className="absolute inset-0 bg-black/50"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             role="button"
             tabIndex={0}
             aria-label="Fermer le menu"
@@ -100,10 +100,10 @@ export function AdminLayout() {
               if (e.key === 'Enter' || e.key === ' ') setMobileOpen(false);
             }}
           />
-          <nav className="absolute left-0 top-0 bottom-0 w-64 bg-charcoal-900 text-white p-4">
+          <nav className="absolute left-0 top-0 bottom-0 w-72 bg-charcoal-900 text-white shadow-2xl p-5">
             <div className="flex justify-between items-center mb-6">
               <span className="font-heading text-lg">MBA Admin</span>
-              <button onClick={() => setMobileOpen(false)} className="p-1 text-charcoal-400 hover:text-white">
+              <button onClick={() => setMobileOpen(false)} className="p-2 text-charcoal-400 hover:text-white transition-colors rounded-lg hover:bg-charcoal-800" aria-label="Fermer le menu">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -113,9 +113,9 @@ export function AdminLayout() {
                   key={to}
                   to={to}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-xl text-sm font-medium transition-all duration-200 ${
                     currentPath === to || (to !== '/admin' && currentPath.startsWith(to))
-                      ? 'bg-accent text-white'
+                      ? 'bg-accent/10 text-accent border-l-2 border-l-accent pl-2.5'
                       : 'text-charcoal-300 hover:text-white hover:bg-charcoal-800'
                   }`}
                 >

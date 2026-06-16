@@ -324,7 +324,7 @@ export function ProductFormPage() {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Basic info */}
-        <div className="bg-white p-6 rounded-xl border border-charcoal-200 space-y-4">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 space-y-4">
           <h2 className="font-heading text-lg text-charcoal-900">Informations générales</h2>
 
           <Input
@@ -355,7 +355,7 @@ export function ProductFormPage() {
             <select
               value={categoryId}
               onChange={(e) => setCategoryId(e.target.value)}
-              className="w-full px-4 py-2.5 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent text-charcoal-700"
+              className="w-full px-4 py-2.5 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:border-accent text-charcoal-700"
               required
             >
               <option value="">Sélectionner une catégorie</option>
@@ -379,7 +379,7 @@ export function ProductFormPage() {
         </div>
 
         {/* Images */}
-        <div className="bg-white p-6 rounded-xl border border-charcoal-200">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100">
           <h2 className="font-heading text-lg text-charcoal-900 mb-4">Images</h2>
           <div className="p-8 border-2 border-dashed border-charcoal-200 rounded-lg text-center">
             <p className="text-sm text-charcoal-500">Images gérées via Cloudinary</p>
@@ -390,7 +390,7 @@ export function ProductFormPage() {
         </div>
 
         {/* Variants */}
-        <div className="bg-white p-6 rounded-xl border border-charcoal-200 space-y-4">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 space-y-4">
           <h2 className="font-heading text-lg text-charcoal-900">Variantes</h2>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -421,7 +421,7 @@ export function ProductFormPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-charcoal-50 border-b border-charcoal-200">
+                  <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
                     <th className="text-left px-3 py-2 font-medium text-charcoal-600">Couleur</th>
                     <th className="text-left px-3 py-2 font-medium text-charcoal-600">Taille</th>
                     <th className="text-left px-3 py-2 font-medium text-charcoal-600">Prix</th>
@@ -507,14 +507,14 @@ export function ProductFormPage() {
 
         {/* Quantity pricing tiers */}
         {isQuantityPricing && (
-          <div className="bg-white p-6 rounded-xl border border-charcoal-200 space-y-4">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 space-y-4">
             <h2 className="font-heading text-lg text-charcoal-900">Paliers de prix par quantité</h2>
 
             {tiers.length > 0 && (
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="bg-charcoal-50 border-b border-charcoal-200">
+                    <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
                       <th className="text-left px-3 py-2 font-medium text-charcoal-600">Quantité min</th>
                       <th className="text-left px-3 py-2 font-medium text-charcoal-600">Prix</th>
                       <th className="w-10 px-3 py-2" />

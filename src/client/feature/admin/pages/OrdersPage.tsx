@@ -114,7 +114,7 @@ export function OrdersPage() {
             placeholder="Rechercher client, email..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors placeholder:text-charcoal-400"
+            className="w-full pl-9 pr-3 py-2 text-sm bg-charcoal-50/50 border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all duration-200 placeholder:text-charcoal-400"
           />
         </form>
       </div>
@@ -127,7 +127,7 @@ export function OrdersPage() {
               value={status}
               onChange={(e) => handleStatusChange(e.target.value)}
               aria-label="Filtrer par statut"
-              className="appearance-none pl-3 pr-8 py-2 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors text-charcoal-700 cursor-pointer"
+              className="appearance-none pl-3 pr-8 py-2 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200 text-charcoal-700 cursor-pointer"
             >
               <option value="">Tous les statuts</option>
               <option value="pending">En attente</option>
@@ -142,7 +142,7 @@ export function OrdersPage() {
           <button
             type="button"
             onClick={() => setShowFilters(!showFilters)}
-            className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-charcoal-600 bg-white border-2 border-charcoal-200 rounded-lg hover:border-charcoal-400 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-charcoal-600 bg-white ring-1 ring-inset ring-charcoal-200 rounded-xl hover:ring-charcoal-300 hover:bg-charcoal-50/50 transition-all duration-200"
           >
             <ChevronDown
               className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`}
@@ -172,7 +172,7 @@ export function OrdersPage() {
                   setDateFrom(e.target.value);
                   setPage(1);
                 }}
-                className="px-3 py-2 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors"
+                className="px-3 py-2 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200"
               />
             </div>
             <div>
@@ -184,7 +184,7 @@ export function OrdersPage() {
                   setDateTo(e.target.value);
                   setPage(1);
                 }}
-                className="px-3 py-2 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors"
+                className="px-3 py-2 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200"
               />
             </div>
           </div>
@@ -192,17 +192,17 @@ export function OrdersPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-charcoal-200 rounded-xl overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-charcoal-50 border-b border-charcoal-200">
-                <th className="text-left px-4 py-3 font-medium text-charcoal-500">ID</th>
-                <th className="text-left px-4 py-3 font-medium text-charcoal-500">Client</th>
-                <th className="text-left px-4 py-3 font-medium text-charcoal-500">Date</th>
-                <th className="text-right px-4 py-3 font-medium text-charcoal-500">Montant</th>
-                <th className="text-left px-4 py-3 font-medium text-charcoal-500">Statut</th>
-                <th className="text-right px-4 py-3 font-medium text-charcoal-500">Actions</th>
+              <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
+                <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">ID</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Client</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Date</th>
+                <th className="text-right px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Montant</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Statut</th>
+                <th className="text-right px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-charcoal-100">
@@ -295,7 +295,7 @@ export function OrdersPage() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1}
-              className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-charcoal-600 bg-white border-2 border-charcoal-200 rounded-lg hover:border-charcoal-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-charcoal-600 bg-white ring-1 ring-inset ring-charcoal-200 rounded-xl hover:ring-charcoal-300 hover:bg-charcoal-50/50 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <ChevronLeft className="h-4 w-4" />
               Précédent
@@ -303,7 +303,7 @@ export function OrdersPage() {
             <button
               onClick={() => setPage((p) => p + 1)}
               disabled={page >= totalPages}
-              className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-charcoal-600 bg-white border-2 border-charcoal-200 rounded-lg hover:border-charcoal-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-charcoal-600 bg-white ring-1 ring-inset ring-charcoal-200 rounded-xl hover:ring-charcoal-300 hover:bg-charcoal-50/50 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Suivant
               <ChevronRight className="h-4 w-4" />

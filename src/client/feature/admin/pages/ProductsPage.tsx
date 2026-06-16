@@ -115,7 +115,7 @@ export function ProductsPage() {
         <select
           value={categoryId}
           onChange={handleCategoryChange}
-          className="px-4 py-2.5 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent text-charcoal-700"
+          className="px-4 py-2.5 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent text-charcoal-700"
         >
           <option value="">Toutes les catégories</option>
           {categories.map((c) => (
@@ -127,7 +127,7 @@ export function ProductsPage() {
         <select
           value={statusFilter}
           onChange={handleStatusChange}
-          className="px-4 py-2.5 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent text-charcoal-700"
+          className="px-4 py-2.5 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent text-charcoal-700"
         >
           <option value="">Tous les statuts</option>
           <option value="active">Actif</option>
@@ -144,7 +144,7 @@ export function ProductsPage() {
 
       {/* Loading */}
       {isLoading && (
-        <div className="bg-white rounded-xl border border-charcoal-200 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 overflow-hidden">
           <div className="divide-y divide-charcoal-100">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="flex items-center gap-4 p-4">
@@ -169,15 +169,15 @@ export function ProductsPage() {
 
       {/* Table */}
       {!isLoading && !isError && products.length > 0 && (
-        <div className="bg-white rounded-xl border border-charcoal-200 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-charcoal-50 border-b border-charcoal-200">
-                  <th className="text-left px-4 py-3 font-medium text-charcoal-600">Nom</th>
-                  <th className="text-left px-4 py-3 font-medium text-charcoal-600">Slug</th>
-                  <th className="text-left px-4 py-3 font-medium text-charcoal-600">Catégorie</th>
-                  <th className="text-left px-4 py-3 font-medium text-charcoal-600">Prix</th>
+                <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
+                  <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Nom</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Slug</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Catégorie</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wider text-charcoal-400">Prix</th>
                   <th className="text-left px-4 py-3 font-medium text-charcoal-600">Stock</th>
                   <th className="text-left px-4 py-3 font-medium text-charcoal-600">Statut</th>
                   <th className="text-right px-4 py-3 font-medium text-charcoal-600">Actions</th>

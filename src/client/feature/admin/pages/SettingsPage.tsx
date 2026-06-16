@@ -60,7 +60,7 @@ function SettingsSkeleton() {
         <Skeleton className="h-10 w-48" />
         <Skeleton className="h-10 w-48" />
       </div>
-      <div className="bg-white p-6 rounded-xl border border-charcoal-200 space-y-4">
+      <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 space-y-4">
         {Array.from({ length: 6 }).map((_, i) => (
           <Skeleton key={i} className="h-14 w-full" />
         ))}
@@ -235,7 +235,7 @@ export function SettingsPage() {
 
       {/* Tab: Store info */}
       {tab === 'store' && (
-        <form onSubmit={handleStoreSave} className="bg-white p-6 rounded-xl border border-charcoal-200 space-y-4">
+        <form onSubmit={handleStoreSave} className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 space-y-4">
           <h2 className="font-heading text-lg text-charcoal-900 mb-2">Informations boutique</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -262,7 +262,7 @@ export function SettingsPage() {
       {/* Tab: Order form fields */}
       {tab === 'fields' && (
         <div className="space-y-6">
-          <div className="bg-white p-6 rounded-xl border border-charcoal-200">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100">
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-heading text-lg text-charcoal-900">Champs du formulaire de commande</h2>
               <Button type="button" variant="outline" size="sm" onClick={addField}>
@@ -279,7 +279,7 @@ export function SettingsPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="bg-charcoal-50 border-b border-charcoal-200">
+                    <tr className="bg-charcoal-50/80 border-b border-charcoal-100">
                       <th className="w-8 px-2 py-2" />
                       <th className="text-left px-2 py-2 font-medium text-charcoal-600">Label</th>
                       <th className="text-left px-2 py-2 font-medium text-charcoal-600">Type</th>

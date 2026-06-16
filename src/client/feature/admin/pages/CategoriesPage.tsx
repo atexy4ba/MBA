@@ -288,7 +288,7 @@ export function CategoriesPage() {
 
       {/* Loading */}
       {isLoading && (
-        <div className="bg-white rounded-xl border border-charcoal-200">
+        <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100">
           <div className="divide-y divide-charcoal-100">
             {Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="flex items-center gap-3 px-4 py-3">
@@ -305,7 +305,7 @@ export function CategoriesPage() {
 
       {/* Inline form */}
       {showForm && (
-        <div className="bg-white p-6 rounded-xl border border-charcoal-200 mb-6">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-charcoal-100 mb-6">
           <h2 className="font-heading text-lg text-charcoal-900 mb-4">
             {editingId !== null ? 'Modifier la catégorie' : 'Nouvelle catégorie'}
           </h2>
@@ -340,7 +340,7 @@ export function CategoriesPage() {
                 <select
                   value={form.parentId}
                   onChange={(e) => setForm((f) => ({ ...f, parentId: e.target.value }))}
-                  className="w-full px-4 py-2.5 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent text-charcoal-700"
+                  className="w-full px-4 py-2.5 text-sm bg-white border border-charcoal-200 rounded-xl focus:outline-none focus:border-accent text-charcoal-700"
                 >
                   <option value="">Aucune (racine)</option>
                   {categories
@@ -386,13 +386,13 @@ export function CategoriesPage() {
 
       {/* Categories tree */}
       {!isLoading && !isError && tree.length === 0 && (
-        <div className="text-center py-16 bg-white rounded-xl border border-charcoal-200">
+        <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-charcoal-100">
           <p className="text-charcoal-500 text-sm">Aucune catégorie</p>
         </div>
       )}
 
       {!isLoading && !isError && tree.length > 0 && (
-        <div className="bg-white rounded-xl border border-charcoal-200 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-charcoal-100 overflow-hidden">
           <div className="divide-y divide-charcoal-100">
             {tree.map((node) => renderNode(node, 0))}
           </div>
