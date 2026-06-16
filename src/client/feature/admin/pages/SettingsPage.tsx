@@ -292,7 +292,7 @@ export function SettingsPage() {
                     {fields.map((field, index) => (
                       <tr key={field.key}>
                         <td className="px-2 py-2">
-                          <div className="flex items-center gap-0.5">
+                          <div className="flex items-center gap-1">
                             <button
                               type="button"
                               onClick={() => moveField(index, -1)}
@@ -309,7 +309,7 @@ export function SettingsPage() {
                             >
                               <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
                             </button>
-                            <GripVertical className="h-4 w-4 text-charcoal-300 ml-0.5" />
+                            <GripVertical className="h-4 w-4 text-charcoal-300 ml-1" />
                           </div>
                         </td>
                         <td className="px-2 py-2">

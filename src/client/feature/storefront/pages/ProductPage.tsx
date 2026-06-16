@@ -392,7 +392,7 @@ export function ProductPage() {
                     type="button"
                     disabled={quantity <= 1}
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    className="p-2.5 text-charcoal-600 hover:text-charcoal-900 disabled:opacity-30"
+                    className="p-2 text-charcoal-600 hover:text-charcoal-900 disabled:opacity-30"
                   >
                     <Minus className="h-4 w-4" />
                   </button>
@@ -407,13 +407,13 @@ export function ProductPage() {
                     }}
                     min={1}
                     max={selectedVariant.stock}
-                    className="w-14 text-center text-sm font-medium border-x-2 border-charcoal-200 py-2.5 focus:outline-none"
+                    className="w-14 text-center text-sm font-medium border-x-2 border-charcoal-200 py-2 focus:outline-none"
                   />
                   <button
                     type="button"
                     disabled={quantity >= selectedVariant.stock}
                     onClick={() => setQuantity((q) => Math.min(selectedVariant.stock, q + 1))}
-                    className="p-2.5 text-charcoal-600 hover:text-charcoal-900 disabled:opacity-30"
+                    className="p-2 text-charcoal-600 hover:text-charcoal-900 disabled:opacity-30"
                   >
                     <Plus className="h-4 w-4" />
                   </button>

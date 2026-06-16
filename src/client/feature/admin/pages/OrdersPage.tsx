@@ -208,12 +208,12 @@ export function OrdersPage() {
               {isLoading &&
                 Array.from({ length: 8 }).map((_, i) => (
                   <tr key={i}>
-                    <td className="px-4 py-3.5"><Skeleton className="h-4 w-8" /></td>
-                    <td className="px-4 py-3.5"><Skeleton className="h-4 w-32" /></td>
-                    <td className="px-4 py-3.5"><Skeleton className="h-4 w-24" /></td>
-                    <td className="px-4 py-3.5"><Skeleton className="h-4 w-16 ml-auto" /></td>
-                    <td className="px-4 py-3.5"><Skeleton className="h-5 w-20" /></td>
-                    <td className="px-4 py-3.5"><Skeleton className="h-8 w-16 ml-auto" /></td>
+                    <td className="px-4 py-4"><Skeleton className="h-4 w-8" /></td>
+                    <td className="px-4 py-4"><Skeleton className="h-4 w-32" /></td>
+                    <td className="px-4 py-4"><Skeleton className="h-4 w-24" /></td>
+                    <td className="px-4 py-4"><Skeleton className="h-4 w-16 ml-auto" /></td>
+                    <td className="px-4 py-4"><Skeleton className="h-5 w-20" /></td>
+                    <td className="px-4 py-4"><Skeleton className="h-8 w-16 ml-auto" /></td>
                   </tr>
                 ))}
 
@@ -221,27 +221,27 @@ export function OrdersPage() {
                 !isError &&
                 orders.map((order) => (
                   <tr key={order.id} className="hover:bg-charcoal-50 transition-colors">
-                    <td className="px-4 py-3.5 font-mono text-charcoal-400 text-xs">
+                    <td className="px-4 py-4 font-mono text-charcoal-400 text-xs">
                       #{order.id}
                     </td>
-                    <td className="px-4 py-3.5">
+                    <td className="px-4 py-4">
                       <div className="font-medium text-charcoal-900">{order.customerName}</div>
                       <div className="text-xs text-charcoal-400">{order.email}</div>
                     </td>
-                    <td className="px-4 py-3.5 text-charcoal-500 whitespace-nowrap">
+                    <td className="px-4 py-4 text-charcoal-500 whitespace-nowrap">
                       {new Date(order.createdAt).toLocaleDateString('fr-FR', {
                         day: '2-digit',
                         month: 'short',
                         year: 'numeric',
                       })}
                     </td>
-                    <td className="px-4 py-3.5 text-right font-medium text-charcoal-900 tabular-nums">
+                    <td className="px-4 py-4 text-right font-medium text-charcoal-900 tabular-nums">
                       {formatPrice(order.total)}
                     </td>
-                    <td className="px-4 py-3.5">
+                    <td className="px-4 py-4">
                       <StatusBadge status={order.status} />
                     </td>
-                    <td className="px-4 py-3.5 text-right">
+                    <td className="px-4 py-4 text-right">
                       <Button
                         variant="outline"
                         size="sm"

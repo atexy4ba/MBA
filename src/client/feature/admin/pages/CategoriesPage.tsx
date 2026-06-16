@@ -202,7 +202,7 @@ export function CategoriesPage() {
           {hasChildren ? (
             <button
               onClick={() => toggleExpand(cat.id)}
-              className="p-0.5 text-charcoal-400 hover:text-charcoal-700 transition-colors"
+              className="p-1 text-charcoal-400 hover:text-charcoal-700 transition-colors"
             >
               {isExpanded ? (
                 <ChevronDown className="h-4 w-4" />
@@ -234,7 +234,7 @@ export function CategoriesPage() {
           <div className="flex items-center gap-1">
             <button
               onClick={() => openEdit(cat)}
-              className="p-1.5 text-charcoal-400 hover:text-accent transition-colors rounded-lg hover:bg-charcoal-100"
+              className="p-2 text-charcoal-400 hover:text-accent transition-colors rounded-lg hover:bg-charcoal-100"
               title="Modifier"
             >
               <Edit2 className="h-4 w-4" />
@@ -247,7 +247,7 @@ export function CategoriesPage() {
                   }
                 }}
                 disabled={deactivateMutation.isPending}
-                className="p-1.5 text-charcoal-400 hover:text-red-600 transition-colors rounded-lg hover:bg-charcoal-100"
+                className="p-2 text-charcoal-400 hover:text-red-600 transition-colors rounded-lg hover:bg-charcoal-100"
                 title="Désactiver"
               >
                 <Archive className="h-4 w-4" />

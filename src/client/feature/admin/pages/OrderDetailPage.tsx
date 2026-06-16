@@ -259,23 +259,23 @@ export function OrderDetailPage() {
                 <tbody className="divide-y divide-charcoal-100">
                   {items.map((item) => (
                     <tr key={item.id}>
-                      <td className="px-5 py-3.5 font-medium text-charcoal-900">
+                      <td className="px-5 py-4 font-medium text-charcoal-900">
                         {item.productName}
                       </td>
-                      <td className="px-5 py-3.5 text-charcoal-500">
+                      <td className="px-5 py-4 text-charcoal-500">
                         {item.color}
                         {item.size && ` / ${item.size}`}
                       </td>
-                      <td className="px-5 py-3.5 text-charcoal-400 font-mono text-xs">
+                      <td className="px-5 py-4 text-charcoal-400 font-mono text-xs">
                         {item.sku}
                       </td>
-                      <td className="px-5 py-3.5 text-center text-charcoal-900">
+                      <td className="px-5 py-4 text-center text-charcoal-900">
                         {item.quantity}
                       </td>
-                      <td className="px-5 py-3.5 text-right text-charcoal-600 tabular-nums">
+                      <td className="px-5 py-4 text-right text-charcoal-600 tabular-nums">
                         {formatPrice(item.unitPrice)}
                       </td>
-                      <td className="px-5 py-3.5 text-right font-medium text-charcoal-900 tabular-nums">
+                      <td className="px-5 py-4 text-right font-medium text-charcoal-900 tabular-nums">
                         {formatPrice(
                           parseFloat(item.unitPrice) * item.quantity,
                         )}

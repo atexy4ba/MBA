@@ -67,7 +67,7 @@ export function AdminLayout() {
 
       {/* Mobile header */}
       <div className="lg:hidden fixed top-0 inset-x-0 z-30 bg-charcoal-900 text-white h-14 flex items-center px-4">
-        <button onClick={() => setMobileOpen(true)} className="p-1.5 -ml-1.5 text-charcoal-300 hover:text-white">
+        <button onClick={() => setMobileOpen(true)} className="p-2 text-charcoal-300 hover:text-white">
           <Menu className="h-5 w-5" />
         </button>
         <span className="font-heading text-base ml-3">MBA Admin</span>
