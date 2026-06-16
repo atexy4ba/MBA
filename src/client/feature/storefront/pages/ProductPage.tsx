@@ -387,7 +387,7 @@ export function ProductPage() {
             {selectedVariant && selectedVariant.stock > 0 && (
               <div className="mt-6">
                 <p className="text-sm font-medium text-charcoal-700 mb-2">Quantité</p>
-                <div className="inline-flex items-center border-2 border-charcoal-200 rounded-lg">
+                <div className="inline-flex items-center border border-charcoal-200 rounded-xl overflow-hidden">
                   <button
                     type="button"
                     disabled={quantity <= 1}

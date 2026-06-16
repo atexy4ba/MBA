@@ -14,7 +14,7 @@ export function NotFoundPage() {
         </p>
         <Link
           to="/fr"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent-hover transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent-hover transition-all duration-200 shadow-md shadow-accent/20 hover:-translate-y-px"
         >
           <Home className="h-4 w-4" />
           Retour à l'accueil

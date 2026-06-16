@@ -96,7 +96,7 @@ export function CategoryPage() {
                     placeholder="Min"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
-                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-lg focus:outline-none focus:border-accent"
+                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200"
                   />
                   <span className="text-charcoal-400">-</span>
                   <input
@@ -104,7 +104,7 @@ export function CategoryPage() {
                     placeholder="Max"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
-                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-lg focus:outline-none focus:border-accent"
+                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200"
                   />
                 </div>
               </div>
@@ -230,7 +230,7 @@ export function CategoryPage() {
                     placeholder="Min"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
-                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-lg focus:outline-none focus:border-accent"
+                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200"
                   />
                   <span className="text-charcoal-400">-</span>
                   <input
@@ -238,7 +238,7 @@ export function CategoryPage() {
                     placeholder="Max"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
-                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-lg focus:outline-none focus:border-accent"
+                    className="w-full px-3 py-2 text-sm border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-200"
                   />
                 </div>
               </div>

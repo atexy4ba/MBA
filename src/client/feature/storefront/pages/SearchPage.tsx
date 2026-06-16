@@ -83,7 +83,7 @@ export function SearchPage() {
             placeholder="Rechercher un produit..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className="w-full pl-12 pr-10 py-3 text-sm bg-white border-2 border-charcoal-200 rounded-xl focus:outline-none focus:border-accent transition-colors placeholder:text-charcoal-400"
+            className="w-full pl-12 pr-10 py-3 text-sm bg-charcoal-50/50 border border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent focus:bg-white transition-all duration-200 placeholder:text-charcoal-400"
           />
           {searchInput && (
             <button
