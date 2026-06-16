@@ -13,7 +13,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       )}
       <input
         ref={ref}
-        className={`w-full px-4 py-2.5 text-sm bg-white border-2 rounded-lg transition-colors duration-150 placeholder:text-charcoal-400 focus:outline-none focus:border-accent ${
+        className={`w-full px-4 py-2.5 text-sm bg-white border-2 rounded-lg transition-colors duration-150 placeholder:text-charcoal-500 focus:outline-none focus:border-accent ${
           error ? 'border-red-500' : 'border-charcoal-200 hover:border-charcoal-400'
         } ${className}`}
         {...props}
@@ -37,7 +37,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       )}
       <textarea
         ref={ref}
-        className={`w-full px-4 py-2.5 text-sm bg-white border-2 rounded-lg transition-colors duration-150 placeholder:text-charcoal-400 focus:outline-none focus:border-accent resize-none ${
+        className={`w-full px-4 py-2.5 text-sm bg-white border-2 rounded-lg transition-colors duration-150 placeholder:text-charcoal-500 focus:outline-none focus:border-accent resize-none ${
           error ? 'border-red-500' : 'border-charcoal-200 hover:border-charcoal-400'
         } ${className}`}
         {...props}

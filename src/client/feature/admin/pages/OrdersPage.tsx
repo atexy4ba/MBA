@@ -35,9 +35,9 @@ const STATUS_LABELS: Record<Order['status'], string> = {
 const STATUS_BADGE: Record<Order['status'], string> = {
   pending: 'bg-yellow-50 text-yellow-700 border-yellow-200',
   confirmed: 'bg-blue-50 text-blue-700 border-blue-200',
-  shipped: 'bg-red-50 text-accent border-red-200',
+  shipped: 'bg-orange-50 text-orange-700 border-orange-200',
   delivered: 'bg-green-50 text-green-700 border-green-200',
-  cancelled: 'bg-charcoal-100 text-charcoal-500 border-charcoal-200',
+  cancelled: 'bg-charcoal-100 text-charcoal-500 border-charcoal-200 line-through',
 };
 
 function StatusBadge({ status }: { status: Order['status'] }) {

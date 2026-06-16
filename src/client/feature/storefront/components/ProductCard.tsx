@@ -125,7 +125,7 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
         <div className="absolute inset-x-0 bottom-0 p-3 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           <button
             type="button"
-            className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-medium tracking-tight rounded-lg py-2.5 px-4 text-sm hover:bg-red-800 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-medium tracking-tight rounded-lg py-2.5 px-4 text-sm hover:bg-accent-hover transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
             onClick={(e) => {
               e.stopPropagation();
               onClick?.();
