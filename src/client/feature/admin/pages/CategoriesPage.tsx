@@ -256,9 +256,13 @@ export function CategoriesPage() {
           </div>
         </div>
 
-        {hasChildren && isExpanded && (
-          <div className="divide-y divide-charcoal-100">
-            {node.children.map((child) => renderNode(child, depth + 1))}
+        {hasChildren && (
+          <div className={`overflow-hidden transition-all duration-300 ease-out ${
+            isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="divide-y divide-charcoal-100">
+              {node.children.map((child) => renderNode(child, depth + 1))}
+            </div>
           </div>
         )}
       </div>
