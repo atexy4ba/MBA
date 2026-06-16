@@ -486,7 +486,8 @@ export function ProductFormPage() {
                         <button
                           type="button"
                           onClick={() => removeVariantRow(v.key)}
-                          className="p-1 text-charcoal-400 hover:text-red-600 transition-colors"
+                          className="p-2 text-charcoal-400 hover:text-red-600 transition-colors"
+                          aria-label={`Supprimer la variante ${v.color} ${v.size}`}
                         >
                           <X className="h-4 w-4" />
                         </button>
@@ -546,7 +547,8 @@ export function ProductFormPage() {
                           <button
                             type="button"
                             onClick={() => removeTier(t.key)}
-                            className="p-1 text-charcoal-400 hover:text-red-600 transition-colors"
+                            className="p-2 text-charcoal-400 hover:text-red-600 transition-colors"
+                            aria-label="Supprimer ce palier de prix"
                           >
                             <X className="h-4 w-4" />
                           </button>

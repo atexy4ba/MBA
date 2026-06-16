@@ -107,7 +107,7 @@ export function OrdersPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <h1 className="font-heading text-2xl text-charcoal-900">Commandes</h1>
 
-        <form onSubmit={handleSearchSubmit} className="relative w-full sm:w-72">
+        <form onSubmit={handleSearchSubmit} className="relative w-full sm:w-72" role="search" aria-label="Rechercher une commande">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-charcoal-400" />
           <input
             type="text"
@@ -126,6 +126,7 @@ export function OrdersPage() {
             <select
               value={status}
               onChange={(e) => handleStatusChange(e.target.value)}
+              aria-label="Filtrer par statut"
               className="appearance-none pl-3 pr-8 py-2 text-sm bg-white border-2 border-charcoal-200 rounded-lg focus:outline-none focus:border-accent transition-colors text-charcoal-700 cursor-pointer"
             >
               <option value="">Tous les statuts</option>
