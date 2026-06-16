@@ -1,7 +1,7 @@
 import { Link, Outlet, useNavigate, useLocation } from '@tanstack/react-router';
 import { LayoutDashboard, ShoppingBag, Package, Tags, Settings, LogOut, Menu, X } from 'lucide-react';
 import { useAuthStore } from '@client/feature/auth/stores';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navItems = [
   { to: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
@@ -17,6 +17,15 @@ export function AdminLayout() {
   const location = useLocation();
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
   const logout = useAuthStore((s) => s.logout);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [mobileOpen]);
 
   if (!isAuthenticated) {
     navigate({ to: '/admin/login' });
@@ -75,8 +84,22 @@ export function AdminLayout() {
 
       {/* Mobile sidebar */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMobileOpen(false)}>
-          <div className="absolute inset-0 bg-black/50" />
+        <div
+          className="fixed inset-0 z-40 lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navigation"
+        >
+          <div
+            className="absolute inset-0 bg-black/50"
+            role="button"
+            tabIndex={0}
+            aria-label="Fermer le menu"
+            onClick={() => setMobileOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') setMobileOpen(false);
+            }}
+          />
           <nav className="absolute left-0 top-0 bottom-0 w-64 bg-charcoal-900 text-white p-4">
             <div className="flex justify-between items-center mb-6">
               <span className="font-heading text-lg">MBA Admin</span>

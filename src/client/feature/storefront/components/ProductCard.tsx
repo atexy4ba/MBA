@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { Link } from '@tanstack/react-router';
 import { ShoppingCart } from 'lucide-react';
 import type { ProductWithVariants } from '@client/shared/types';
 import { PriceRange } from '@client/shared/components/PriceTag';
@@ -7,7 +8,6 @@ import { cn } from '@client/shared/lib/utils';
 
 interface ProductCardProps {
   product: ProductWithVariants;
-  onClick?: () => void;
 }
 
 const COLOR_MAP: Record<string, string> = {
@@ -61,7 +61,7 @@ function resolveColor(value: string): string {
   return COLOR_MAP[value.toLowerCase()] ?? '#9ca3af';
 }
 
-export function ProductCard({ product, onClick }: ProductCardProps) {
+export function ProductCard({ product }: ProductCardProps) {
   const lowestStock = useMemo(
     () =>
       product.variants.length > 0
@@ -86,9 +86,10 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
   const hasTransition = secondaryImage !== null;
 
   return (
-    <article
-      className="group cursor-pointer"
-      onClick={onClick}
+    <Link
+      to="/fr/products/$slug"
+      params={{ slug: product.slug }}
+      className="group block"
     >
       <div className="relative overflow-hidden bg-charcoal-50 aspect-[3/4]">
         {product.imageUrl ? (
@@ -123,17 +124,12 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
         )}
 
         <div className="absolute inset-x-0 bottom-0 p-3 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <button
-            type="button"
-            className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-medium tracking-tight rounded-lg py-2.5 px-4 text-sm hover:bg-accent-hover transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-            onClick={(e) => {
-              e.stopPropagation();
-              onClick?.();
-            }}
+          <span
+            className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-medium tracking-tight rounded-lg py-2.5 px-4 text-sm hover:bg-accent-hover transition-colors duration-150"
           >
             <ShoppingCart className="w-4 h-4" />
-            Commander
-          </button>
+            Voir le produit
+          </span>
         </div>
       </div>
 
@@ -148,7 +144,7 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
             />
           ))}
           {uniqueColors.length > 6 && (
-            <span className="text-xs text-charcoal-400 leading-4 font-body">
+            <span className="text-xs text-charcoal-500 leading-4 font-body">
               +{uniqueColors.length - 6}
             </span>
           )}
@@ -164,6 +160,6 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
           <PriceRange variants={product.variants} />
         </div>
       )}
-    </article>
+    </Link>
   );
 }

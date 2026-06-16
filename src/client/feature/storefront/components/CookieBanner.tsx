@@ -23,7 +23,7 @@ export function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-charcoal-900 text-white p-4 md:p-6">
+    <aside className="fixed bottom-0 left-0 right-0 z-50 bg-charcoal-900 text-white p-4 md:p-6" role="complementary" aria-label="Bannière de cookies">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <p className="text-sm text-charcoal-200 flex-1">
           Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser
@@ -48,6 +48,6 @@ export function CookieBanner() {
           </button>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }

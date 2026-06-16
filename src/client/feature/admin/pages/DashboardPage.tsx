@@ -157,9 +157,10 @@ export function DashboardPage() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {statCards.map(({ label, value, icon: Icon, borderColor, bgIcon }) => (
-          <div
+          <article
             key={label}
             className={`bg-white rounded-xl border border-charcoal-200 border-l-4 ${borderColor} p-5 flex items-start gap-4`}
+            aria-label={`${label}: ${value}`}
           >
             <div className={`p-2.5 rounded-lg shrink-0 ${bgIcon}`}>
               <Icon className="h-5 w-5" />
@@ -172,7 +173,7 @@ export function DashboardPage() {
                 {value}
               </p>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 
