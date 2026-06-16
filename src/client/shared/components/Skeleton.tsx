@@ -1,7 +1,7 @@
 export function Skeleton({ className = '' }: { className?: string }) {
   return (
     <div
-      className={`animate-breathe bg-charcoal-100 rounded-lg ${className}`}
+      className={`animate-breathe bg-gradient-to-r from-charcoal-100 via-charcoal-100 to-charcoal-200 rounded-xl ${className}`}
       role="presentation"
     />
   );
@@ -9,11 +9,11 @@ export function Skeleton({ className = '' }: { className?: string }) {
 
 export function ProductCardSkeleton() {
   return (
-    <div className="group">
+    <div className="group rounded-2xl overflow-hidden">
       <Skeleton className="aspect-[3/4] w-full rounded-none" />
-      <div className="mt-3 space-y-2">
-        <Skeleton className="h-4 w-3/4" />
-        <Skeleton className="h-4 w-1/2" />
+      <div className="mt-3 space-y-2 px-1">
+        <Skeleton className="h-4 w-3/4 rounded-md" />
+        <Skeleton className="h-4 w-1/2 rounded-md" />
       </div>
     </div>
   );
