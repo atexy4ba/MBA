@@ -48,7 +48,7 @@ export function AdminLayout() {
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              className={`flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
                 currentPath === to || (to !== '/admin' && currentPath.startsWith(to))
                   ? 'bg-accent text-white'
                   : 'text-charcoal-300 hover:text-white hover:bg-charcoal-800'
@@ -66,7 +66,7 @@ export function AdminLayout() {
               localStorage.removeItem('mba-auth');
               navigate({ to: '/admin/login' });
             }}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal-400 hover:text-white hover:bg-charcoal-800 transition-colors w-full"
+            className="flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg text-sm font-medium text-charcoal-400 hover:text-white hover:bg-charcoal-800 transition-colors w-full"
           >
             <LogOut className="h-4 w-4" />
             Déconnexion
@@ -113,7 +113,7 @@ export function AdminLayout() {
                   key={to}
                   to={to}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-3 min-h-[44px] rounded-lg text-sm font-medium transition-colors ${
                     currentPath === to || (to !== '/admin' && currentPath.startsWith(to))
                       ? 'bg-accent text-white'
                       : 'text-charcoal-300 hover:text-white hover:bg-charcoal-800'

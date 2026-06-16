@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Link } from '@tanstack/react-router';
+import { Link, useNavigate } from '@tanstack/react-router';
 import { Search, Phone, X, Menu } from 'lucide-react';
 
 const navLinks = [
@@ -12,6 +12,7 @@ const navLinks = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const navigate = useNavigate();
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
@@ -83,7 +84,7 @@ export function Header() {
                   const form = e.currentTarget;
                   const input = form.querySelector('input') as HTMLInputElement;
                   if (input.value.trim()) {
-                    window.location.href = `/fr/search?q=${encodeURIComponent(input.value.trim())}`;
+                    navigate({ to: '/fr/search', search: { q: input.value.trim() } });
                   }
                 }}
               >

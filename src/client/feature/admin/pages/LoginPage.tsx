@@ -51,6 +51,7 @@ export function LoginPage() {
           <Input
             label="Email"
             type="email"
+            inputMode="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="admin@madebyalgerians.com"

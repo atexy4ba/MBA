@@ -459,6 +459,7 @@ export function ProductFormPage() {
                           className="w-24 px-2 py-1.5 text-sm border border-charcoal-200 rounded focus:outline-none focus:border-accent"
                           min={0}
                           step={0.01}
+                          inputMode="decimal"
                         />
                       </td>
                       <td className="px-3 py-2">
@@ -469,6 +470,7 @@ export function ProductFormPage() {
                           className="w-20 px-2 py-1.5 text-sm border border-charcoal-200 rounded focus:outline-none focus:border-accent"
                           min={0}
                           step={1}
+                          inputMode="numeric"
                         />
                       </td>
                       <td className="px-3 py-2">
